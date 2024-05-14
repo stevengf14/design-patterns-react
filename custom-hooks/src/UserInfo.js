@@ -1,9 +1,12 @@
-import { useCurrentUser } from "./useCurrentUser";
-import { useUser } from "./useUser";
+// import { useCurrentUser } from "./useCurrentUser";
+// import { useUser } from "./useUser";
+
+import { useResource } from "./useResource";
 
 export const UserInfo = ({ userId }) => {
   // const user = useCurrentUser();
-  const user = useUser(userId);
+  // const user = useUser(userId);
+  const user = useResource(`/users/${userId}`);
   const { name, age, hairColor, hobbies } = user || {};
 
   return user ? (
